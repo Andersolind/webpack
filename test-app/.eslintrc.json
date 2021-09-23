@@ -1,0 +1,16 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": ["airbnb", "airbnb/hooks"],
+  "rules": {
+    "no-console": "off",
+    "arrow-body-style": ["error", "always"],
+    "import/extensions": ["off"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "import/no-extraneous-dependencies": ["off"],
+    "max-len": ["off"],
+    "react/prop-types": 0
+  }
+}
