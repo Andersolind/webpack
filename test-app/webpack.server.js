@@ -1,5 +1,5 @@
 const path = require('path');
-const NodeExternals = require('webpack-node-externals');
+const nodeExternals = require('webpack-node-externals');
 const NodemonPlugin = require('nodemon-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
@@ -8,35 +8,42 @@ const buildPath = path.resolve(__dirname, 'build', 'server');
 
 module.exports = {
   mode: devMode ? 'development' : 'production',
-  target: 'node', // in order to ignore built-in modules like path, fs, etc.
-  externals: [NodeExternals()], // in order to ignore all modules in node_modules folder
+
+  // in order to ignore built-in modules like path, fs, etc.
+  target: 'node',
+
+  // in order to ignore all modules in node_modules folder
+  externals: [nodeExternals()],
   entry: {
-    index: './server/index.js',
+    index: './server/server.js',
   },
   plugins: [
-    new NodemonPlugin({ // to watch and restart the output file, but only when webpack is in watch mode (ie, --watch)
+
+    // watch and restart output file, but only when webpack is in watch mode (ie, --watch)
+    new NodemonPlugin({
       watch: buildPath,
     }),
     new Dotenv(),
   ],
   output: {
     filename: '[name].js',
-    path: buildPath, // path to output directory
+    path: buildPath,
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/, // match js or jsx files
-        exclude: /node-modules/, // ignore node-modules
+        test: /\.(js|jsx)$/u,
+        exclude: /node-modules/u,
         use: ['babel-loader'],
       },
       {
-        test: /\.(s[ac]ss|css)$/,
+        test: /\.(s[ac]ss|css)$/u,
         use: [
           {
             loader: 'css-loader',
             options: {
               modules: {
+
                 // this is where we're adding the CSS module names only
                 exportOnlyLocals: true,
                 exportLocalsConvention: 'camelCase',

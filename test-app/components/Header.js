@@ -1,10 +1,16 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import s from './Header.module.scss';
 
-export default function Header({ title }) {
+const Header = function HeaderComponent({ title }) {
   return (
     <div className={s.content}>
-      <a href="/" className={s.logo} suppressHydrationWarning>{title}</a>
+      <a className={s.logo} href="/" suppressHydrationWarning>{title}</a>
     </div>
   );
-}
+};
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+};
+
+export default Header;

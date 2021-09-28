@@ -1,7 +1,9 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import s from './Post.module.scss';
 
-export default function Post({ title, subTitle, body }) {
+const Post = function PostComponent({
+  title, subTitle, body,
+}) {
   return (
     <div className={s.content}>
       {title && <h1 suppressHydrationWarning>{title}</h1>}
@@ -9,4 +11,17 @@ export default function Post({ title, subTitle, body }) {
       <p className={s.body} suppressHydrationWarning>{body}</p>
     </div>
   );
-}
+};
+
+Post.propTypes = {
+  body: PropTypes.string.isRequired,
+  subTitle: PropTypes.string,
+  title: PropTypes.string,
+};
+
+Post.defaultProps = {
+  subTitle: '',
+  title: '',
+};
+
+export default Post;

@@ -1,8 +1,12 @@
-**WIP: This is just the beginning of our test-app™**
+# IndigoJS
 
-As we're attempting to work backwards, the idea is `test-app` will be a companion to the framework used to help flush out developer use cases. As these are refined we'll eventully abstract the framework to it's own folder.
+As we're attempting to work backwards, the idea is **test-app** will be a companion to the **framework** used to help flush out developer use cases. As these are refined we'll eventully abstract the framework to it's own folder. We may move the **test-app** to it's own repo.
 
-**WIP: To get up and running**
+### Test App
+
+WIP: This is just the beginning. We could document use cases here?
+
+**To get up and running**
 
 - Add a `.env` file to the `test-app` directory with the following content
 

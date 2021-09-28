@@ -2,27 +2,33 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 
-const { NODE_ENV, CLIENT_PORT, SERVER_PORT } = process.env;
+const {
+  NODE_ENV, CLIENT_PORT, SERVER_PORT,
+} = process.env;
 const devMode = NODE_ENV !== 'production';
 const buildPath = path.resolve(__dirname, 'build');
 const serverURL = `http://localhost:${SERVER_PORT}`;
 
 module.exports = {
   mode: devMode ? 'development' : 'production',
-  target: 'web', // compile for usage in a browser-like environment (default)
+  target: 'web',
   entry: {
-    bundle: ['./client/index.js'],
+    bundle: ['./client/client.js'],
   },
   plugins: [
-    new MiniCssExtractPlugin({ // plugin extracts CSS into separate files
-      filename: 'css/bundle.css', // relative to output.path
+
+    // plugin extracts CSS into separate files
+    new MiniCssExtractPlugin({
+      filename: 'css/bundle.css',
     }),
     new Dotenv(),
   ],
   output: {
     filename: '[name].js',
     path: buildPath,
-    publicPath: '/', // every file emitted to your path directory will be referenced from here
+
+    // every file emitted to your path directory will be referenced from here
+    publicPath: '/',
   },
   devServer: {
     port: CLIENT_PORT,
@@ -34,14 +40,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/, // match js or jsx files
-        exclude: /node-modules/, // ignore node-modules
+        test: /\.(js|jsx)$/u,
+        exclude: /node-modules/u,
         use: ['babel-loader'],
       },
       {
-        test: /\.(s[ac]ss|css)$/, // match sass|scss|css
+
+        // match sass|scss|css
+        test: /\.(s[ac]ss|css)$/u,
         use: [
-          MiniCssExtractPlugin.loader, // extracts CSS into separate files
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -51,18 +59,18 @@ module.exports = {
               },
             },
           },
-          'sass-loader', // compiles SCSS/SASS to CSS
+          'sass-loader',
         ],
       },
       {
-        test: /\.(svg|png|jpe?g|gif)$/, // load images
+        test: /\.(svg|png|jpe?g|gif)$/u,
         type: 'asset/resource',
         generator: {
           filename: 'img/[name][ext][query]',
         },
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/, // load fonts
+        test: /\.(woff|woff2|eot|ttf|otf)$/u,
         type: 'asset/resource',
         generator: {
           filename: 'fonts/[name][ext][query]',

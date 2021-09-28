@@ -1,8 +1,11 @@
-import React from 'react';
 import s from './Footer.module.scss';
 
-export default function Footer() {
+const COPYRIGHT = '© Footer. All rights reserved.';
+
+const Footer = function FooterComponent() {
   return (
-    <div className={s.content}>© Footer. All rights reserved.</div>
+    <div className={s.content}>{COPYRIGHT}</div>
   );
-}
+};
+
+export default Footer;
