@@ -6,6 +6,7 @@ module.exports = {
     jest: true,
   },
   extends: 'eslint-config-indigo',
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 8,
   },
