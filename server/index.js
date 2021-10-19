@@ -2,9 +2,13 @@ import express from 'express';
 import cors from 'cors';
 import ReactDOM from 'react-dom/server';
 import * as React from 'react';
-import App from '../shared/App';
+import App from '../src/shared/App';
+import router from '../routes/router';
 
 const app = express();
+const tempPort = 3001;
+
+const port = tempPort;
 
 app.use(cors());
 app.use(express.static('dist'));
@@ -16,7 +20,7 @@ app.get('*', (req, res, next) => {
     <!DOCTYPE html>
     <html>
       <head>
-        <title>SSR with React Router</title>
+        <title>Indigo JS SSR</title>
         <script src="/bundle.js" defer></script>
         <link href="/main.css" rel="stylesheet">
       </head>
@@ -28,8 +32,14 @@ app.get('*', (req, res, next) => {
   `);
 });
 
-const PORT = process.env.PORT || 3000;
+app.listen(port, () => {
+  const section = 'IndigoJS';
 
-app.listen(PORT, () => {
-  console.log(`Server is listening on port: ${PORT}`);
+  // eslint-disable-next-line no-console
+  return console.log(`${section} is running on port: ${port}`);
+});
+app.use(router);
+
+app.use((req, res) => {
+  res.send('404');
 });

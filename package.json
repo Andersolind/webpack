@@ -9,10 +9,12 @@
   },
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "webpack-dev-server --config ./webpackClient/webpack.config.js --mode development",
-    "build": "webpack --config ./wepbackClient/webpack.config.prod.js --mode=production",
+    "start:client": "webpack-dev-server --config ./webpack/webpack.client.dev.js --mode development",
+    "build:client": "webpack --config ./webpack/webpack.client.prod.js --mode=production",
+    "build:server": "webpack --config ./webpack/webpack.server.prod.js",
     "start:server": "node dist/server.js",
-    "dev:server": "webpack && node dist/server.js",
+    "dev:server": "webpack --config ./webpack/webpack.server.dev.js && node dist/server.js",
+    "prod:server": "webpack --config ./webpack/webpack.server.prod.js && node dist/server.js",
     "lint": "eslint .",
     "test": "jest . --coverage"
   },
