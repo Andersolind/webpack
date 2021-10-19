@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "webpack-dev-server --config ./webpackkClient/webpack.config.js --mode development",
+    "start": "webpack-dev-server --config ./webpackClient/webpack.config.js --mode development",
     "build": "webpack --config ./wepbackClient/webpack.config.prod.js --mode=production",
     "start:server": "node dist/server.js",
     "dev:server": "webpack && node dist/server.js",
