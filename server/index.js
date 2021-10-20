@@ -1,12 +1,11 @@
 import express from 'express';
 import cors from 'cors';
 import ReactDOM from 'react-dom/server';
-import * as React from 'react';
 import App from '../src/shared/App';
 import router from '../routes/router';
 
 const app = express();
-const tempPort = 3001;
+const tempPort = 5000;
 
 const port = tempPort;
 
