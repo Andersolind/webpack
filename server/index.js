@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import ReactDOM from 'react-dom/server';
-import App from '../src/shared/App';
+import App from '../src/shared/App/App';
 import router from '../routes/router';
 
 const app = express();

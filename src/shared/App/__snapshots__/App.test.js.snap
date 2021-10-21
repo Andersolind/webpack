@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render an empty message when no books 1`] = `
+exports[`should render App 1`] = `
 <div
   data-testid="hello"
 >
