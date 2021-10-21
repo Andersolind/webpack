@@ -16,6 +16,7 @@
     "dev:server": "webpack --config ./webpack/webpack.server.dev.js && node dist/server.js",
     "prod:server": "webpack --config ./webpack/webpack.server.prod.js && node dist/server.js",
     "lint": "eslint .",
+    "lint:fix" : "eslint --fix",
     "test": "jest . --coverage"
   },
   "author": "eComm",

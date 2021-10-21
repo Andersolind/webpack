@@ -12,6 +12,7 @@ const port = tempPort;
 app.use(cors());
 app.use(express.static('dist'));
 
+// eslint-disable-next-line no-unused-vars
 app.get('*', (req, res, next) => {
   const markup = ReactDOM.renderToString(<App />);
 
