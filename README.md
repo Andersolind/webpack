@@ -1,4 +1,4 @@
-# Welcome to IndigoJS
+
 
 ## How to run the application
 

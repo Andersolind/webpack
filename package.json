@@ -1,12 +1,8 @@
 {
   "name": "indigo-js",
   "version": "0.0.0",
-  "description": "IndigoJS framework",
+  "description": "framework",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://artifactory.indigint.net/artifactory/api/npm/npm/"
-  },
   "scripts": {
     "dev": "nodemon index.js",
     "start:client": "webpack-dev-server --config ./webpack/webpack.client.dev.js --mode development",
@@ -57,8 +53,6 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "css-loader": "^5.1.3",
     "eslint": "^7.32.0",
-    "eslint-config-indigo": "^1.3.1",
-    "eslint-config-indigo-react": "^1.0.2",
     "eslint-plugin-import": "^2.24.0",
     "eslint-plugin-security": "^1.4.0",
     "file-loader": "^6.2.0",
